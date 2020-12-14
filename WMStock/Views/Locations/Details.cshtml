@@ -1,0 +1,28 @@
+﻿@model WMStock.Models.Location
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Düzenle</h2>
+
+<div>
+    <h4>Lokasyon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.LocationName)*@
+            Lokasyon
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.LocationID }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

@@ -1,0 +1,40 @@
+﻿@model WMStock.Models.Department
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Departman</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.DepartmentName)*@
+            Departman
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartmentName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Location.LocationName)*@
+            Lokasyon
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.LocationName)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.DepartmentID }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WMStock.Models.Personal>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PERSONEL</h2>
+
+<p>
+    @Html.ActionLink("Yeni Personel", "Create")
+</p>
+@using (Html.BeginForm("Search", "Personals", FormMethod.Get))
+{
+    @Html.TextBox("s")<input type="submit" value="Ara" />
+}
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Name)*@
+            Adı
+
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Surname)*@
+            Soyadı
+
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Pjob)*@
+            Ünvan
+
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Department.DepartmentName)*@
+            Departman
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pjob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.PersonalId }) |
+                @Html.ActionLink("Detaylar", "Details", new { id = item.PersonalId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.PersonalId })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WMStock.Models.Location>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LOKASYON</h2>
+
+<p>
+    @Html.ActionLink("Yeni Lokasyon", "Create")
+</p>
+@using (Html.BeginForm("Search", "Locations", FormMethod.Get))
+{
+    @Html.TextBox("s")<input type="submit" value="Ara" />
+}
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.LocationName)*@
+            Lokasyon
+        </th>
+        <th></th>
+    </tr>
+    
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="3" style="color:red">No Match</td>
+        </tr>
+    }
+    else
+    {
+
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.LocationName
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.LocationID }) |
+                    @Html.ActionLink("Detaylar", "Details", new { id = item.LocationID }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.LocationID })
+                </td>
+            </tr>
+        }
+    }
+
+    </table>
+
+<p>
+
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

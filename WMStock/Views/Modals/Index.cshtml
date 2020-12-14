@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WMStock.Models.Modal>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MODEL</h2>
+
+<p>
+    @Html.ActionLink("Yeni Model", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ModalName)*@
+
+            Model
+        </th>
+        <th>
+
+            @*@Html.DisplayNameFor(model => model.Brand.BrandName)*@
+            Marka
+        </th>
+        <th>
+
+            @*@Html.DisplayNameFor(model => model.Category.CategoryName)*@
+            Kategori
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModalName)
+             
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.BrandName)
+              
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+              
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.ModalID }) |
+                @Html.ActionLink("Detaylar", "Details", new { id = item.ModalID }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.ModalID })
+            </td>
+        </tr>
+    }
+
+</table>

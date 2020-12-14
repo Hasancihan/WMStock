@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WMStock.Models.Department>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DEPARTMAN</h2>
+
+<p>
+    @Html.ActionLink("Yeni Departman", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @*@Html.DisplayNameFor(model => model.DepartmentName)*@
+            Departman
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Location.LocationName)*@
+            Lokasyon
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+          
+            @Html.DisplayFor(modelItem => item.DepartmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.LocationName)
+        
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.DepartmentID }) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.DepartmentID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.DepartmentID })
+        </td>
+    </tr>
+}
+
+</table>

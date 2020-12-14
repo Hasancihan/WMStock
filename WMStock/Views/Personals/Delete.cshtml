@@ -1,0 +1,61 @@
+﻿@model WMStock.Models.Personal
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SİL</h2>
+
+<h3>Personeli silmek istediğinden emin misin ?</h3>
+<div>
+    <h4>Personel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Name)*@
+            Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Surname)*@
+            Soyadı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Pjob)*@
+            Ünvan
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pjob)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Department.DepartmentName)*@
+            Departman Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DepartmentName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,85 @@
+﻿@model WMStock.Models.Inventory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Envanter</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.InventoryName)*@
+            Kayıt Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InventoryName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Personal.Name)*@
+            Personel
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personal.Name)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Category.CategoryName)*@
+            Kategori
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Brand.BrandName)*@
+            Marka
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand.BrandName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Modal.ModalName)*@
+            Model
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modal.ModalName)
+        </dd>
+
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Location.LocationName)*@
+            Lokasyon
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.LocationName)
+        </dd>
+
+
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.DateTime)*@
+            Tarih
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.InventoryID }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>
